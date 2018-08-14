@@ -1,0 +1,41 @@
+<div class="col-md-12">
+  <p>
+    Create Search Filter
+  </p>
+   
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick skillsets" aria-label="Number" matInput [formControl]="skillControl" [(ngModel)]="PortalFilter.skills"
+        [matAutocomplete]="autoskills">
+      <mat-autocomplete #autoskills="matAutocomplete">
+        <mat-option *ngFor="let filter of filteredOptions | async" [value]="filter">
+          {{filter}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick sources" aria-label="Number" matInput [formControl]="sourcesControl" [(ngModel)]="PortalFilter.sorces"
+        [matAutocomplete]="autosource">
+      <mat-autocomplete #autosource="matAutocomplete">
+        <mat-option *ngFor="let source of sourceOptions | async" [value]="source">
+          {{source}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick citi" aria-label="Number" matInput [formControl]="locationControl" [(ngModel)]="PortalFilter.locations"
+        [matAutocomplete]="autolocation">
+      <mat-autocomplete #autolocation="matAutocomplete">
+        <mat-option *ngFor="let location of locationOptions | async" [value]="location">
+          {{location}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <button (click)="filerfn()">search</button>
+</div>
