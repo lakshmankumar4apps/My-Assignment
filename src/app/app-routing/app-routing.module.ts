@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateSearchComponent } from '../create-search/create-search.component';
-import { SummaryPageComponent } from '../summary-page/summary-page.component';
 import { ReportService } from "../report.service";
- 
+import { FilterComponent } from "../filter/filter.component";
+
 const approutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home', 
-    component: CreateSearchComponent
+    component: FilterComponent
   },
   {
-    path: 'summary',
-    component: SummaryPageComponent
+    path: '**',
+    // component: 
+     redirectTo: '/home', pathMatch: 'full'
   }
+  
 ]
 @NgModule({
   imports: [
